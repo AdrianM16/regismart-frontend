@@ -1065,3 +1065,275 @@ select {
   .landing-title { font-size: 36px; }
   .admin-topbar { padding: 0 16px; }
 }
+
+/* Table responsive — hide less important columns on mobile */
+@media (max-width: 768px) {
+
+  /* Admin topbar — smaller text */
+  .admin-topbar-title {
+    font-size: 12px;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Stats — 2 columns on mobile instead of 1 */
+  .stats-grid-3,
+  .stats-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .stat-card h3 {
+    font-size: 28px;
+  }
+
+  /* Tables — scrollable on mobile */
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    min-width: 500px;
+  }
+
+  /* Hide less important table columns on mobile */
+  .data-table thead th:nth-child(3),
+  .data-table tbody td:nth-child(3) {
+    display: none;
+  }
+
+  /* Cards */
+  .card-body { padding: 16px; }
+  .card-body-lg { padding: 20px; }
+
+  /* Queue board — single column */
+  .queue-board {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form grid — single column */
+  .form-grid,
+  .form-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Bar items */
+  .bar-item {
+    grid-template-columns: 100px 1fr 35px;
+    font-size: 12px;
+  }
+
+  /* Page header */
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  /* Admin topbar actions */
+  .admin-topbar-actions .btn-outline {
+    display: none;
+  }
+
+  /* Step indicator — smaller text */
+  .step-indicator-item {
+    font-size: 10px;
+    padding: 8px 4px;
+  }
+
+  /* Profile header */
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  /* Landing */
+  .landing-title {
+    font-size: 32px !important;
+  }
+
+  .landing-subtitle {
+    font-size: 15px;
+  }
+
+  .landing-features {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Auth card */
+  .auth-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  /* Mobile nav — active indicator */
+  .mobile-nav-item.active {
+    color: var(--maroon) !important;
+    font-weight: 700;
+  }
+
+  .mobile-nav-item.active .nav-icon {
+    transform: scale(1.15);
+  }
+
+  /* Bottom padding for mobile nav */
+  .student-main,
+  .admin-content {
+    padding-bottom: 80px !important;
+  }
+
+  /* Topbar brand on mobile */
+  .topbar-brand-sub {
+    display: none;
+  }
+
+  /* Timeslot grid */
+  .timeslot-grid {
+    gap: 6px;
+  }
+
+  .timeslot-chip {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  /* Request cards */
+  .request-card-head {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Search bar */
+  .search-bar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small — phones */
+  .stats-grid-3,
+  .stats-grid-4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-card h3 {
+    font-size: 24px;
+  }
+
+  .stat-card p {
+    font-size: 10px;
+  }
+
+  .topbar {
+    padding: 0 14px;
+    height: 54px;
+  }
+
+  .topbar-brand-name {
+    font-size: 15px;
+  }
+
+  .topbar-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .topbar-nav-logout {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  /* Page header */
+  .page-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 18px;
+  }
+
+  .page-header p {
+    font-size: 13px;
+  }
+
+  /* Buttons */
+  .btn {
+    height: 40px;
+    font-size: 12px;
+  }
+
+  /* Mobile nav text */
+  .mobile-nav-item {
+    font-size: 9px;
+  }
+
+  .mobile-nav-item .nav-icon {
+    font-size: 18px;
+  }
+
+  /* Landing */
+  .landing-badge {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .auth-logo h1 {
+    font-size: 24px;
+  }
+
+  /* Queue items */
+  .queue-item-actions {
+    gap: 4px;
+  }
+
+  .btn-xs {
+    height: 26px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+}
+
+/* ============================================================
+   ACTIVE NAV LINK FIX — ensures active state is always visible
+   ============================================================ */
+.mobile-nav-item.active {
+  color: var(--maroon);
+  position: relative;
+}
+
+.mobile-nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 3px;
+  background: var(--maroon);
+  border-radius: 0 0 4px 4px;
+}
+
+/* Topbar nav active state */
+.topbar-nav a.active {
+  background: rgba(255,255,255,0.18) !important;
+  color: var(--white) !important;
+  font-weight: 600;
+}
+
+/* Admin sidebar active state */
+.admin-sidebar-nav a.active {
+  background: var(--gold) !important;
+  color: var(--maroon-dark) !important;
+  font-weight: 700;
+}
+
